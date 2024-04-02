@@ -1,10 +1,16 @@
-import { NavBar } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
+import { NavBar } from "@/components/layout/header"
+import { dir } from "i18next"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
+import { languages } from "../i18n/settings"
 import "./globals.css"
 
 const inter = Inter({ subsets: ["latin"] })
+
+export async function generateStaticParams() {
+  return languages.map((lng) => ({ lng }))
+}
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -13,15 +19,17 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  params: { lng },
 }: Readonly<{
   children: React.ReactNode
+  params: { lng: string }
 }>) {
   return (
-    <html lang="en">
+    <html lang={lng} dir={dir(lng)}>
       <body className={inter.className}>
-        <NavBar />
+        <NavBar lng={lng} />
         <main>{children}</main>
-        <Footer />
+        <Footer lng={lng} />
       </body>
     </html>
   )

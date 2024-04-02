@@ -1,8 +1,4 @@
-export type NavigationItem = {
-  label: string
-  href: string
-  ariaLabel: string
-}
+import { NavigationItem } from "@/lib/app-types"
 
 export const navigation: NavigationItem[] = [
   {
