@@ -1,15 +1,10 @@
-"use client"
-
 import { AuthCard } from "@/components/auth/auth-card"
-import { useState } from "react"
 
-export default function Account() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false)
-
+export default async function Account({ params: { lng } }: { params: { lng: string } }) {
   return (
     <div>
-      <h1>Account</h1>
-      <AuthCard />
+      <h1>Account {lng}</h1>
+      <AuthCard lng={lng} />
     </div>
   )
 }

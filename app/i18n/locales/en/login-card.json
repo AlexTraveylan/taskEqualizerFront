@@ -1,0 +1,9 @@
+{
+    "title": "Sign In",
+    "description": "Sign in to access your family space with your username and password.",
+    "usernameField": "Username",
+    "passwordField": "Password",
+    "buttonLabel": "Sign In",
+    "footerCard": "Don't have an account yet?",
+    "footerLink": "Create an account"
+}

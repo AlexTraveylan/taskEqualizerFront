@@ -1,0 +1,10 @@
+{
+    "title": "Créer un compte",
+    "description": "Entrez vos informations pour créer un compte",
+    "usernameField": "Nom d'utilisateur",
+    "passwordField": "Mot de passe",
+    "familyNameField": "Nom de la Famille à créer",
+    "buttonLabel": "Créer un compte",
+    "footerCard": "Vous avez déjà un compte ?",
+    "footerLink": "Connectez-vous ici"
+}

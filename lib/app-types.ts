@@ -6,7 +6,7 @@ export type ImageType = {
 }
 
 export type NavigationItem = {
-  label: string
+  label: Map<string, string>
   href: string
-  ariaLabel: string
+  ariaLabel: Map<string, string>
 }

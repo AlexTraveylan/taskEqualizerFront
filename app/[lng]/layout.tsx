@@ -1,5 +1,6 @@
 import { Footer } from "@/components/layout/footer"
 import { NavBar } from "@/components/layout/header"
+import { cn } from "@/lib/utils"
 import { dir } from "i18next"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
@@ -26,9 +27,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang={lng} dir={dir(lng)}>
-      <body className={inter.className}>
+      <body className={cn(inter.className, "flex flex-col min-h-screen")}>
         <NavBar lng={lng} />
-        <main>{children}</main>
+        <main className="flex flex-grow">{children}</main>
         <Footer lng={lng} />
       </body>
     </html>

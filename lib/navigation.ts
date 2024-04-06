@@ -2,23 +2,55 @@ import { NavigationItem } from "@/lib/app-types"
 
 export const navigation: NavigationItem[] = [
   {
-    label: "Home",
+    label: new Map([
+      ["en", "home"],
+      ["fr", "accueil"],
+      ["de", "heim"],
+    ]),
     href: "/",
-    ariaLabel: "Go to Home page",
+    ariaLabel: new Map([
+      ["en", "Go to Home page"],
+      ["fr", "Aller à la page d'accueil"],
+      ["de", "Gehe zur Startseite"],
+    ]),
   },
   {
-    label: "account",
+    label: new Map([
+      ["en", "about"],
+      ["fr", "à propos"],
+      ["de", "über"],
+    ]),
     href: "/account",
-    ariaLabel: "Go to Account page",
+    ariaLabel: new Map([
+      ["en", "Go to Account page"],
+      ["fr", "Aller à la page de compte"],
+      ["de", "Gehe zur Kontoseite"],
+    ]),
   },
   {
-    label: "settings",
+    label: new Map([
+      ["en", "settings"],
+      ["fr", "paramètres"],
+      ["de", "einstellungen"],
+    ]),
     href: "/settings",
-    ariaLabel: "Go to Settings page",
+    ariaLabel: new Map([
+      ["en", "Go to Settings page"],
+      ["fr", "Aller à la page des paramètres"],
+      ["de", "Gehe zur Einstellungsseite"],
+    ]),
   },
   {
-    label: "logout",
+    label: new Map([
+      ["en", "logout"],
+      ["fr", "déconnexion"],
+      ["de", "ausloggen"],
+    ]),
     href: "/logout",
-    ariaLabel: "Go to Logout page",
+    ariaLabel: new Map([
+      ["en", "Go to Logout page"],
+      ["fr", "Aller à la page de déconnexion"],
+      ["de", "Gehe zur Abmeldeseite"],
+    ]),
   },
 ]

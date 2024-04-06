@@ -1,0 +1,10 @@
+{
+    "title": "Ein Konto erstellen",
+    "description": "Geben Sie Ihre Informationen ein, um ein Konto zu erstellen",
+    "usernameField": "Benutzername",
+    "passwordField": "Passwort",
+    "familyNameField": "Zu erstellender Familienname",
+    "buttonLabel": "Konto erstellen",
+    "footerCard": "Sie haben bereits ein Konto?",
+    "footerLink": "Hier einloggen"
+}
