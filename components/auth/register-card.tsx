@@ -30,6 +30,7 @@ export function RegisterForm({ setIsLoginCardVisible, lng }: { setIsLoginCardVis
         family_name: familyName,
         password: password,
       }),
+      credentials: "include",
     })
 
     if (response.ok) {
