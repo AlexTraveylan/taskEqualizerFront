@@ -4,10 +4,12 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { registerUrl } from "@/lib/api-setting"
+import { useIsAuth } from "@/lib/auth-store"
 
 export function RegisterForm({ setIsLoginCardVisible, lng }: { setIsLoginCardVisible: (value: boolean) => void; lng: string }) {
   const { i18n } = useTranslation(lng, "register-card")
   const t = i18n.getFixedT(lng, "register-card")
+  const { authState } = useIsAuth()
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -35,6 +37,7 @@ export function RegisterForm({ setIsLoginCardVisible, lng }: { setIsLoginCardVis
 
     if (response.ok) {
       console.log("User registered")
+      authState(true)
     } else if (response.status === 400) {
       console.log("User already exists")
     } else {

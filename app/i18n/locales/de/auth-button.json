@@ -1,0 +1,6 @@
+{
+    "logoutButtonLabel": "Abmelden",
+    "logoutButtonAriaLabel": "Benutzer abmelden",
+    "loginButtonAriaLabel": "Benutzeranmeldung auslösen",
+    "loginButtonLabel": "Anmelden"
+}
