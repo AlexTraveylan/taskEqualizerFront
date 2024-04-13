@@ -1,11 +1,15 @@
-import { useTranslation } from "@/app/i18n/client"
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { logoutUrl } from "@/lib/api-setting"
 import { useIsAuth } from "@/lib/auth-store"
+import { useTranslation } from "@/lib/client-custom"
+import { useLngState } from "@/lib/lng-store"
 import Link from "next/link"
 
-export const AuthButton = ({ lng, path }: { lng: string; path?: string }) => {
-  const { t } = useTranslation(lng, "auth-button")
+export const AuthButton = () => {
+  const { lng } = useLngState()
+  const t = useTranslation(lng, "auth-button")
   const { isAuth, authState } = useIsAuth()
 
   const handleLogout = async () => {
@@ -27,7 +31,7 @@ export const AuthButton = ({ lng, path }: { lng: string; path?: string }) => {
   }
 
   return (
-    <Link href={`/${lng}/auth-page`} passHref>
+    <Link href="/auth-page" passHref>
       <Button aria-label={t("loginButtonAriaLabel")}>{t("loginButtonLabel")}</Button>
     </Link>
   )

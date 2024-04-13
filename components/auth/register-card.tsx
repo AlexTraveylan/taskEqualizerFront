@@ -1,14 +1,17 @@
-import { useTranslation } from "@/app/i18n/client"
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { registerUrl } from "@/lib/api-setting"
 import { useIsAuth } from "@/lib/auth-store"
+import { useTranslation } from "@/lib/client-custom"
+import { useLngState } from "@/lib/lng-store"
 
-export function RegisterForm({ setIsLoginCardVisible, lng }: { setIsLoginCardVisible: (value: boolean) => void; lng: string }) {
-  const { i18n } = useTranslation(lng, "register-card")
-  const t = i18n.getFixedT(lng, "register-card")
+export function RegisterForm({ setIsLoginCardVisible }: { setIsLoginCardVisible: (value: boolean) => void }) {
+  const { lng } = useLngState()
+  const t = useTranslation(lng, "register-card")
   const { authState } = useIsAuth()
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {

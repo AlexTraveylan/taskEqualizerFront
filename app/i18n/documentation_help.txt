@@ -1,6 +1,0 @@
-https://github.com/lauriahlfors/nextjs14-i18n/tree/main
-https://locize.com/blog/next-app-dir-i18n/
-
-exemple
-
-https://github.com/i18next/next-app-dir-i18next-example-ts/blob/main

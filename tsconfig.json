@@ -21,6 +21,14 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "middleware.ts", "app/i18n/index.ts", "components/layout/footer.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "middleware.ts",
+    "public/i18n/index.ts",
+    "components/layout/footer.tsx"
+  ],
   "exclude": ["node_modules"]
 }

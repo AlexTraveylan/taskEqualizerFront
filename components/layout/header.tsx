@@ -11,9 +11,12 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
+import { useLngState } from "@/lib/lng-store"
 import { navigation } from "@/lib/navigation"
 
-export function NavBar({ lng, path }: { lng: string; path?: string }) {
+export function NavBar() {
+  const { lng } = useLngState()
+
   return (
     <div className="flex gap-2 py-2 items-center">
       <NavigationMenu>
@@ -30,7 +33,7 @@ export function NavBar({ lng, path }: { lng: string; path?: string }) {
 
             return (
               <NavigationMenuItem key={`navBarItem${index}`}>
-                <Link href={`/${lng}${item.href}`} aria-label={ariaLabel} legacyBehavior passHref>
+                <Link href={item.href} aria-label={ariaLabel} legacyBehavior passHref>
                   <NavigationMenuLink className={navigationMenuTriggerStyle()}>{toTitlelabel}</NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
@@ -38,8 +41,8 @@ export function NavBar({ lng, path }: { lng: string; path?: string }) {
           })}
         </NavigationMenuList>
       </NavigationMenu>
-      <AuthButton lng={lng} path={path} />
-      <LangageSelection lng={lng} path={path} />
+      <AuthButton />
+      <LangageSelection />
     </div>
   )
 }
