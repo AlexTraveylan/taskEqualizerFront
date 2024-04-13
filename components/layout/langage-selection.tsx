@@ -1,11 +1,12 @@
+"use client"
+
 import { ImageType } from "@/lib/app-types"
 
 import { Menubar, MenubarContent, MenubarItem, MenubarMenu, MenubarTrigger } from "@/components/ui/menubar"
 
-import { languages } from "@/app/i18n/settings"
 import Image from "next/image"
 
-import Link from "next/link"
+import { languages, useLngState } from "@/lib/lng-store"
 
 export const flagsImg: Map<string, ImageType> = new Map([
   [
@@ -37,7 +38,8 @@ export const flagsImg: Map<string, ImageType> = new Map([
   ],
 ])
 
-export const LangageSelection = ({ lng, path = "" }: { lng: string; path?: string }) => {
+export const LangageSelection = () => {
+  const { lng, changeLng } = useLngState()
   const currentFlag = flagsImg.get(lng)
 
   if (!currentFlag) {
@@ -65,10 +67,10 @@ export const LangageSelection = ({ lng, path = "" }: { lng: string; path?: strin
 
               return (
                 <MenubarItem key={`lng_${index}_${l}`}>
-                  <Link href={`/${l}${path}`} className="flex gap-3">
+                  <button onClick={() => changeLng(l)} className="flex gap-3">
                     <Image src={flag.src} alt={flag.alt} height={15} width={30} />
                     <span>{l.toLocaleUpperCase()}</span>
-                  </Link>
+                  </button>
                 </MenubarItem>
               )
             })}
@@ -77,14 +79,3 @@ export const LangageSelection = ({ lng, path = "" }: { lng: string; path?: strin
     </Menubar>
   )
 }
-
-// {languages
-//     .filter((l) => lng !== l)
-//     .map((l, index) => {
-//       return (
-//         <span key={l}>
-//           {index > 0 && " or "}
-//           <Link href={`/${l}${path}`}>{l}</Link>
-//         </span>
-//       )
-//     })}

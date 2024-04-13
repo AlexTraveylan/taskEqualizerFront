@@ -40,17 +40,4 @@ export const navigation: NavigationItem[] = [
       ["de", "Gehe zur Einstellungsseite"],
     ]),
   },
-  // {
-  //   label: new Map([
-  //     ["en", "logout"],
-  //     ["fr", "déconnexion"],
-  //     ["de", "ausloggen"],
-  //   ]),
-  //   href: "/logout",
-  //   ariaLabel: new Map([
-  //     ["en", "Go to Logout page"],
-  //     ["fr", "Aller à la page de déconnexion"],
-  //     ["de", "Gehe zur Abmeldeseite"],
-  //   ]),
-  // },
 ]
