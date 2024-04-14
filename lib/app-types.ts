@@ -9,4 +9,5 @@ export type NavigationItem = {
   label: Map<string, string>
   href: string
   ariaLabel: Map<string, string>
+  authRequired: boolean
 }

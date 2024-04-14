@@ -8,6 +8,7 @@ export const navigation: NavigationItem[] = [
       ["de", "heim"],
     ]),
     href: "/",
+    authRequired: false,
     ariaLabel: new Map([
       ["en", "Go to Home page"],
       ["fr", "Aller à la page d'accueil"],
@@ -21,6 +22,7 @@ export const navigation: NavigationItem[] = [
       ["de", "über"],
     ]),
     href: "/account",
+    authRequired: true,
     ariaLabel: new Map([
       ["en", "Go to Account page"],
       ["fr", "Aller à la page de compte"],
@@ -34,6 +36,7 @@ export const navigation: NavigationItem[] = [
       ["de", "einstellungen"],
     ]),
     href: "/settings",
+    authRequired: true,
     ariaLabel: new Map([
       ["en", "Go to Settings page"],
       ["fr", "Aller à la page des paramètres"],

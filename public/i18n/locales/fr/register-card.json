@@ -4,6 +4,7 @@
     "usernameField": "Nom d'utilisateur",
     "passwordField": "Mot de passe",
     "familyNameField": "Nom de la Famille à créer",
+    "invitationCodeField": "Code d'invitation",
     "buttonLabel": "Créer un compte",
     "footerCard": "Vous avez déjà un compte ?",
     "footerLink": "Connectez-vous ici"
