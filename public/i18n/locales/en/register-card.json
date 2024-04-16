@@ -1,10 +1,9 @@
 {
-    "title": "Create an account",
-    "description": "Enter your information to create an account",
+    "title": "Create your family and account",
+    "description": "Enter your information to start the experience",
     "usernameField": "Username",
     "passwordField": "Password",
     "familyNameField": "Family Name to create",
-    "invitationCodeField": "Invitation Code",
     "buttonLabel": "Create an account",
     "footerCard": "Already have an account?",
     "footerLink": "Log in here"

@@ -8,11 +8,13 @@ import { registerUrl } from "@/lib/api-setting"
 import { useIsAuth } from "@/lib/auth-store"
 import { useTranslation } from "@/lib/client-custom"
 import { useLngState } from "@/lib/lng-store"
+import { useRouter } from "next/navigation"
 
 export function RegisterWithCodeForm({ setIsLoginCardVisible }: { setIsLoginCardVisible: (value: boolean) => void }) {
   const { lng } = useLngState()
-  const t = useTranslation(lng, "register-card")
+  const t = useTranslation(lng, "register-invitation")
   const { authState } = useIsAuth()
+  const router = useRouter()
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -41,6 +43,7 @@ export function RegisterWithCodeForm({ setIsLoginCardVisible }: { setIsLoginCard
     if (response.ok) {
       console.log("User registered")
       authState(true)
+      router.push("/account")
     } else if (response.status === 400) {
       console.log("User already exists")
     } else {
@@ -63,7 +66,7 @@ export function RegisterWithCodeForm({ setIsLoginCardVisible }: { setIsLoginCard
             </div>
             <div className="grid gap-2">
               <Label htmlFor="invitationCode">{t("invitationCodeField")}</Label>
-              <Input id="invitationCode" name="invitationCode" type="text" required />
+              <Input id="invitationCode" placeholder="A1B2C3D4" name="invitationCode" type="text" required />
             </div>
             <div className="grid gap-2">
               <Label htmlFor="password">{t("passwordField")}</Label>

@@ -28,7 +28,7 @@ export const PossibleTaskForm = () => {
 
     if (response.ok) {
       console.log("Possible task created")
-      router.push("/account")
+      router.refresh()
     } else {
       console.log("error")
     }

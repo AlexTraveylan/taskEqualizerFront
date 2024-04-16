@@ -8,11 +8,13 @@ import { loginUrl } from "@/lib/api-setting"
 import { useIsAuth } from "@/lib/auth-store"
 import { useTranslation } from "@/lib/client-custom"
 import { useLngState } from "@/lib/lng-store"
+import { useRouter } from "next/navigation"
 
 export function LoginForm({ setIsLoginCardVisible }: { setIsLoginCardVisible: (value: boolean) => void }) {
   const { lng } = useLngState()
   const t = useTranslation(lng, "login-card")
   const { authState } = useIsAuth()
+  const router = useRouter()
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -39,6 +41,7 @@ export function LoginForm({ setIsLoginCardVisible }: { setIsLoginCardVisible: (v
     if (response.ok) {
       console.log("User logged in")
       authState(true)
+      router.push("/account")
     } else if (response.status === 400) {
       console.log("Invalid credentials")
     } else {

@@ -11,13 +11,28 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
+import { familyUrl } from "@/lib/api-setting"
 import { useIsAuth } from "@/lib/auth-store"
 import { useLngState } from "@/lib/lng-store"
 import { navigation } from "@/lib/navigation"
+import { useEffect } from "react"
 
 export function NavBar() {
   const { lng } = useLngState()
-  const { isAuth } = useIsAuth()
+  const { isAuth, authState } = useIsAuth()
+
+  const fetchFamily = async () => {
+    const response = await fetch(familyUrl, {
+      method: "GET",
+      credentials: "include",
+    })
+
+    authState(response.ok)
+  }
+
+  useEffect(() => {
+    fetchFamily()
+  }, [])
 
   return (
     <div className="flex gap-2 py-2 items-center">

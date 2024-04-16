@@ -1,11 +1,10 @@
 {
-    "title": "Ein Konto erstellen",
-    "description": "Geben Sie Ihre Informationen ein, um ein Konto zu erstellen",
+    "title": "Erstelle deine Familie und dein Konto",
+    "description": "Gib deine Informationen ein, um das Erlebnis zu beginnen",
     "usernameField": "Benutzername",
     "passwordField": "Passwort",
-    "familyNameField": "Zu erstellender Familienname",
-    "invitationCodeField": "Einladungscode",
+    "familyNameField": "Name der zu erstellenden Familie",
     "buttonLabel": "Konto erstellen",
-    "footerCard": "Sie haben bereits ein Konto?",
-    "footerLink": "Hier einloggen"
+    "footerCard": "Hast du bereits ein Konto?",
+    "footerLink": "Hier anmelden"
 }

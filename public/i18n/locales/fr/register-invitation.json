@@ -1,9 +1,9 @@
 {
-    "title": "Créer ta famille et ton compte",
-    "description": "Entre tes informations pour commencer l'experience",
+    "title": "Créer un compte avec un code d'invitation",
+    "description": "Vous avez été invité ? Créez un compte pour rejoindre ta famille.",
     "usernameField": "Nom d'utilisateur",
+    "invitationCodeField": "Code d'invitation",
     "passwordField": "Mot de passe",
-    "familyNameField": "Nom de la Famille à créer",
     "buttonLabel": "Créer un compte",
     "footerCard": "Vous avez déjà un compte ?",
     "footerLink": "Connectez-vous ici"
