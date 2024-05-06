@@ -8,3 +8,5 @@ export const familySchema = z.object({
 })
 
 export type Family = z.infer<typeof familySchema>
+
+export type FamilyIn = Pick<Family, "family_name">
