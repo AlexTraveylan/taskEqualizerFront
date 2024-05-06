@@ -10,3 +10,5 @@ export const possibleTaskSchema = z.object({
 })
 
 export type PossibleTask = z.infer<typeof possibleTaskSchema>
+
+export type PossibleTaskIn = Pick<PossibleTask, "possible_task_name" | "description">
