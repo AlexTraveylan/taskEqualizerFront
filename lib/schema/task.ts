@@ -10,3 +10,5 @@ export const taskSchema = z.object({
 })
 
 export type Task = z.infer<typeof taskSchema>
+
+export type TaskIn = { related_possible_task_id: string }
