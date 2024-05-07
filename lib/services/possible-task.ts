@@ -1,7 +1,7 @@
 import { familyPossibleTasksUrl } from "@/lib/api-setting"
 import { PossibleTask, PossibleTaskIn, possibleTaskSchema } from "@/lib/schema/possible-task"
 
-export class PossibleTaskService {
+class PossibleTaskService {
   /**
    * Retrieves the possible tasks for the family.
    * @returns A Promise that resolves to an array of PossibleTask objects, or undefined if the request fails.
@@ -79,3 +79,5 @@ export class PossibleTaskService {
     return true
   }
 }
+
+export const possibleTaskService = new PossibleTaskService()

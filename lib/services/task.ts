@@ -1,7 +1,7 @@
 import { taskUrl } from "@/lib/api-setting"
 import { Task, TaskIn, taskSchema } from "@/lib/schema/task"
 
-export class TaskService {
+class TaskService {
   /**
    * Creates a new task.
    * @param taskIn The task input data.
@@ -100,3 +100,5 @@ export class TaskService {
     return true
   }
 }
+
+export const taskService = new TaskService()

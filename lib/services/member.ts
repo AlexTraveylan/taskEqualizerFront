@@ -2,7 +2,7 @@ import { memberTaskUrl, memberUrl } from "@/lib/api-setting"
 import { Member, memberSchema } from "@/lib/schema/member"
 import { Task, taskSchema } from "@/lib/schema/task"
 
-export class MemberService {
+class MemberService {
   /**
    * Retrieves a member by ID.
    * @param member_id - The ID of the member to retrieve.
@@ -92,3 +92,5 @@ export class MemberService {
     return true
   }
 }
+
+export const memberService = new MemberService()

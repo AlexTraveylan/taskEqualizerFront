@@ -6,7 +6,7 @@ import { PossibleTask, possibleTaskSchema } from "@/lib/schema/possible-task"
 /**
  * Represents a service for managing family-related operations.
  */
-export class FamilyService {
+class FamilyService {
   /**
    * Retrieves the family information.
    * @returns A Promise that resolves to a Family object, or undefined if the request fails.
@@ -120,3 +120,5 @@ export class FamilyService {
     return true
   }
 }
+
+export const familyService = new FamilyService()

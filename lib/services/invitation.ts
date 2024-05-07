@@ -1,7 +1,7 @@
 import { invitationUrl } from "@/lib/api-setting"
 import { Invitation, invitationSchema } from "@/lib/schema/invitation"
 
-export class InvitationService {
+class InvitationService {
   /**
    * Creates an invitation.
    * @returns A Promise that resolves to an instance of Invitation if successful, otherwise undefined.
@@ -26,3 +26,5 @@ export class InvitationService {
     }
   }
 }
+
+export const invitationService = new InvitationService()
