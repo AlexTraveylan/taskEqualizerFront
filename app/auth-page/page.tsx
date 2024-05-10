@@ -2,11 +2,9 @@
 
 import { AuthCard } from "@/components/auth/auth-card"
 import { useIsAuth } from "@/lib/auth-store"
-import { useLngState } from "@/lib/lng-store"
 import { useRouter } from "next/navigation"
 
 export default function AuthPage() {
-  const { lng } = useLngState()
   const { isAuth } = useIsAuth()
   const router = useRouter()
 
@@ -15,11 +13,8 @@ export default function AuthPage() {
   }
 
   return (
-    <>
-      <div>
-        <h1>Account {lng}</h1>
-        <AuthCard />
-      </div>
-    </>
+    <div className="w-full">
+      <AuthCard />
+    </div>
   )
 }
