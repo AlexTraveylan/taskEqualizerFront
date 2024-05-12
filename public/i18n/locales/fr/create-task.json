@@ -1,0 +1,8 @@
+{
+    "title": "Creation d'une nouvelle tâche possible",
+    "description": "Créer des tâches possibles pour pouvoir les faire, elles seront partagées avec ton foyer",
+    "task_name_field": "Nom de la tache",
+    "placeholder_name": "Cuisine",
+    "description_field": "Description",
+    "button_label": "Creer la tâche possible"
+}

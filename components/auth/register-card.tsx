@@ -19,9 +19,9 @@ export function RegisterForm({ setIsLoginCardVisible }: { setIsLoginCardVisible:
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     const form = new FormData(event.currentTarget)
-    const username = form.get("username")
-    const familyName = form.get("familyName")
-    const password = form.get("password")
+    const username = form.get("username") as string
+    const familyName = form.get("familyName") as string
+    const password = form.get("password") as string
 
     if (!username || !familyName || !password) {
       return

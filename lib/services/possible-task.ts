@@ -1,4 +1,4 @@
-import { familyPossibleTasksUrl } from "@/lib/api-setting"
+import { possibleTaskUrl } from "@/lib/api-setting"
 import { PossibleTask, PossibleTaskIn, possibleTaskSchema } from "@/lib/schema/possible-task"
 
 class PossibleTaskService {
@@ -7,7 +7,7 @@ class PossibleTaskService {
    * @returns A Promise that resolves to an array of PossibleTask objects, or undefined if the request fails.
    */
   async createPossibleTask(possibleTask: PossibleTaskIn): Promise<PossibleTask | undefined> {
-    const response = await fetch(familyPossibleTasksUrl, {
+    const response = await fetch(possibleTaskUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -37,7 +37,7 @@ class PossibleTaskService {
    * @returns A Promise that resolves to the updated PossibleTask object, or undefined if the update fails.
    */
   async updatePossibleTask(possibleTask: PossibleTaskIn, possible_task_id: string): Promise<PossibleTask | undefined> {
-    const response = await fetch(`${familyPossibleTasksUrl}/${possible_task_id}`, {
+    const response = await fetch(`${possibleTaskUrl}/${possible_task_id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -66,7 +66,7 @@ class PossibleTaskService {
    * @returns A Promise that resolves to a boolean indicating whether the deletion was successful.
    */
   async deletePossibleTask(possible_task_id: string): Promise<boolean> {
-    const response = await fetch(`${familyPossibleTasksUrl}/${possible_task_id}`, {
+    const response = await fetch(`${possibleTaskUrl}/${possible_task_id}`, {
       method: "DELETE",
       credentials: "include",
     })

@@ -1,0 +1,8 @@
+{
+    "title": "Neue Aufgabe erstellen möglich",
+    "description": "Erstellen Sie mögliche Aufgaben, um sie zu erledigen, sie werden mit Ihrem Haushalt geteilt",
+    "task_name_field": "Aufgabenname",
+    "placeholder_name": "Küche",
+    "description_field": "Beschreibung",
+    "button_label": "Aufgabe erstellen möglich"
+}
