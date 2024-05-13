@@ -1,5 +1,5 @@
 import { memberTaskUrl, memberUrl } from "@/lib/api-setting"
-import { Member, memberSchema } from "@/lib/schema/member"
+import { Member, WhoIam, memberSchema, whoIamSchema } from "@/lib/schema/member"
 import { Task, taskSchema } from "@/lib/schema/task"
 
 class MemberService {
@@ -48,6 +48,20 @@ class MemberService {
       return parsedData
     } catch (error) {
       console.error("Failed to parse member tasks")
+    }
+  }
+
+  async whoIam(): Promise<WhoIam | undefined> {
+    const response = await fetch(memberUrl, {
+      credentials: "include",
+    })
+
+    const data = await response.json()
+    try {
+      const parsedData = whoIamSchema.parse(data)
+      return parsedData
+    } catch (error) {
+      console.error("Failed to get name")
     }
   }
 

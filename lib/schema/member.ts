@@ -11,3 +11,9 @@ export const memberSchema = z.object({
 export type Member = z.infer<typeof memberSchema>
 
 export type MemberIn = Pick<Member, "member_name" | "family_id">
+
+export const whoIamSchema = z.object({
+  name: z.string(),
+})
+
+export type WhoIam = z.infer<typeof whoIamSchema>
