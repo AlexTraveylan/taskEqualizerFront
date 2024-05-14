@@ -24,7 +24,7 @@ export default function SettingsLayout({
   children: React.ReactNode
 }>) {
   const { lng } = useLngState()
-  const t = useTranslation(lng, "settings")
+  const t = useTranslation(lng, "settings-page")
 
   const query2 = useQuery({ queryKey: ["familyMembers"], queryFn: familyService.getFamilyMembers })
   const query4 = useQuery({ queryKey: ["myName"], queryFn: memberService.whoIam })
@@ -44,9 +44,15 @@ export default function SettingsLayout({
         <NavigationMenu className="px-4 pb-3">
           <NavigationMenuList>
             <NavigationMenuItem>
-              {settings_navigation.map((navItem) => {
+              {settings_navigation.map((navItem, index) => {
                 return (
-                  <Link href={`/settings${navItem.href}`} aria-label={t(navItem.i18nAriaKey)} legacyBehavior passHref>
+                  <Link
+                    key={`${index}_${navItem.i18nKey}`}
+                    href={`/settings${navItem.href}`}
+                    aria-label={t(navItem.i18nAriaKey)}
+                    legacyBehavior
+                    passHref
+                  >
                     <NavigationMenuLink className={navigationMenuTriggerStyle()}>{t(navItem.i18nKey)}</NavigationMenuLink>
                   </Link>
                 )

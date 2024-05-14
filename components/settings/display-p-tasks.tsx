@@ -41,9 +41,9 @@ export const DisplayPossibleTasks = () => {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {query.data.map((possibleTask) => (
+            {query.data.map((possibleTask, index) => (
               <>
-                <RowPossibleTask p_task={possibleTask} />
+                <RowPossibleTask key={`${index}_${possibleTask.id}`} p_task={possibleTask} />
               </>
             ))}
           </TableBody>
