@@ -33,11 +33,10 @@ class PossibleTaskService {
   /**
    * Updates a possible task.
    * @param possibleTask - The updated possible task object.
-   * @param possible_task_id - The ID of the possible task to update.
    * @returns A Promise that resolves to the updated PossibleTask object, or undefined if the update fails.
    */
-  async updatePossibleTask(possibleTask: PossibleTaskIn, possible_task_id: string): Promise<PossibleTask | undefined> {
-    const response = await fetch(`${possibleTaskUrl}/${possible_task_id}`, {
+  async updatePossibleTask(possibleTask: PossibleTaskIn): Promise<PossibleTask | undefined> {
+    const response = await fetch(`${possibleTaskUrl}/${possibleTask.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -66,7 +65,7 @@ class PossibleTaskService {
    * @returns A Promise that resolves to a boolean indicating whether the deletion was successful.
    */
   async deletePossibleTask(possible_task_id: string): Promise<boolean> {
-    const response = await fetch(`${possibleTaskUrl}/${possible_task_id}`, {
+    const response = await fetch(`${possibleTaskUrl}${possible_task_id}`, {
       method: "DELETE",
       credentials: "include",
     })

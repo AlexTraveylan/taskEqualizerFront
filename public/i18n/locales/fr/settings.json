@@ -1,0 +1,8 @@
+{
+  "create_p_task_label": "Creer une tâche possible",
+  "create_p_task_aria": "Lien vers la création d'une tâche possible",
+  "launch_label": "Lancer une tâche",
+  "launch_aria": "Lien vers le lancement d'une tâche",
+  "resume_label": "Statistiques",
+  "resume_aria": "Lien vers les statistiques"
+}

@@ -11,3 +11,9 @@ export type NavigationItem = {
   ariaLabel: Map<string, string>
   authRequired: boolean
 }
+
+export type NavigationSettingsItem = {
+  i18nKey: string
+  href: string
+  i18nAriaKey: string
+}
