@@ -36,7 +36,7 @@ class PossibleTaskService {
    * @returns A Promise that resolves to the updated PossibleTask object, or undefined if the update fails.
    */
   async updatePossibleTask(possibleTask: PossibleTaskIn): Promise<PossibleTask | undefined> {
-    const response = await fetch(`${possibleTaskUrl}/${possibleTask.id}`, {
+    const response = await fetch(`${possibleTaskUrl}${possibleTask.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

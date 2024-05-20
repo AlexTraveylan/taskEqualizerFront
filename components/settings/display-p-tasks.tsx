@@ -35,6 +35,9 @@ export const DisplayPossibleTasks = () => {
               <TableHead className="hidden md:table-cell">Total executed</TableHead>
               <TableHead className="hidden md:table-cell">Total time</TableHead>
               <TableHead className="hidden md:table-cell">Created at</TableHead>
+              <TableHead className="hidden md:table-cell">Update</TableHead>
+              <TableHead className="hidden md:table-cell">Delete</TableHead>
+
               <TableHead>
                 <span className="sr-only">Actions</span>
               </TableHead>

@@ -37,6 +37,9 @@ export default function SettingsLayout({
             items={query2.data.map((member) => {
               const name = member.member_name
               const item = { value: name, label: name }
+              if (query4.data?.name === name) {
+                item.label = item.label + " 👑"
+              }
               return item
             })}
           />
