@@ -65,8 +65,6 @@ export const RowPossibleTask = ({ p_task }: { p_task: PossibleTask }) => {
     <TableRow>
       <TableCell className="font-medium">{p_task.possible_task_name}</TableCell>
       <TableCell className="hidden md:table-cell">{p_task.description}</TableCell>
-      <TableCell className="hidden md:table-cell">0</TableCell>
-      <TableCell className="hidden md:table-cell">0</TableCell>
       <TableCell className="hidden md:table-cell">{new Date(p_task.created_at).toLocaleString()}</TableCell>
       <TableCell>
         <Dialog>
