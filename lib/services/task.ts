@@ -33,26 +33,27 @@ class TaskService {
 
   /**
    * Retrieves a task by its ID.
-   * @param task_id - The ID of the task to retrieve.
    * @returns A Promise that resolves to the retrieved task, or undefined if the task is not found.
    */
-  async getTask(task_id: string): Promise<Task | undefined> {
-    const response = await fetch(`${taskUrl}${task_id}`, {
+  async getCurrentTask(): Promise<Task | undefined> {
+    const response = await fetch(`${taskUrl}`, {
       method: "GET",
       credentials: "include",
     })
 
     if (!response.ok) {
-      console.error("Failed to fetch task")
+      console.error("No current task found")
       return
     }
 
     const data = await response.json()
+
+    console.log(data)
     try {
       const parsedData = taskSchema.parse(data)
       return parsedData
     } catch (error) {
-      console.error("Failed to parse task")
+      console.log("Failed to parse task")
     }
   }
 

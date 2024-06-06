@@ -1,10 +1,22 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
 import { PossibleTask } from "@/lib/schema/possible-task"
+import { taskService } from "@/lib/services/task"
+import { useMutation, useQueryClient } from "@tanstack/react-query"
 
 export const PossibleTaskCardForm = ({ possibleTask }: { possibleTask: PossibleTask }) => {
+  const queryClient = useQueryClient()
+
+  const mutation = useMutation({
+    mutationFn: taskService.createTask,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["currentTask"] })
+    },
+    
+  })
+
   return (
     <Card>
       <CardHeader>
@@ -12,17 +24,7 @@ export const PossibleTaskCardForm = ({ possibleTask }: { possibleTask: PossibleT
         <CardDescription>{possibleTask.description}</CardDescription>
       </CardHeader>
       <CardContent>
-        <form>
-          <Label>
-            <span>Name</span>
-            <Input type="text" name="possible_task_name" defaultValue={possibleTask.possible_task_name} />
-          </Label>
-          <Label>
-            <span>Description</span>
-            <Input type="text" name="description" defaultValue={possibleTask.description} />
-          </Label>
-          <Button type="submit">Update</Button>
-        </form>
+          <Button onClick={() => mutation.mutate({ related_possible_task_id: possibleTask.id })}>Lancer la tache</Button>
       </CardContent>
     </Card>
   )

@@ -1,20 +1,12 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Table, TableBody, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { familyService } from "@/lib/services/family"
-import { possibleTaskService } from "@/lib/services/possible-task"
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
+import { useQuery, useQueryClient } from "@tanstack/react-query"
 import { RowPossibleTask } from "./row_p_task"
 
 export const DisplayPossibleTasks = () => {
   const queryClient = useQueryClient()
   const query = useQuery({ queryKey: ["possibleTasks"], queryFn: familyService.getFamilyPossibleTasks })
-
-  const mutation = useMutation({
-    mutationFn: possibleTaskService.deletePossibleTask,
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["possibleTasks"] })
-    },
-  })
 
   if (!query.data) {
     return <></>
