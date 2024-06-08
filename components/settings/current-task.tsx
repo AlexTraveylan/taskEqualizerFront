@@ -2,18 +2,28 @@
 
 import { Task } from "@/lib/schema/task"
 import { familyService } from "@/lib/services/family"
-import { useQuery } from "@tanstack/react-query"
+import { taskService } from "@/lib/services/task"
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
 import { useEffect, useState } from "react"
 import { Button } from "../ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "../ui/card"
 
 
 export const CurrentTaskForm = ({ currentTask}: {currentTask: Task}) => {
+    const queryClient = useQueryClient()
     const query = useQuery({ queryKey: ["possibleTasks"], queryFn: familyService.getFamilyPossibleTasks })
 
     if (!query.data) {
         return <></>
     }
+
+    const updateMutation = useMutation({
+        mutationFn: taskService.updateTask,
+        onSuccess: () => {
+          queryClient.invalidateQueries({ queryKey: ["currentTask"] })
+        },
+      })
+
 
     const currentPossibleTask = query.data.find((possibleTask) => possibleTask.id === currentTask.related_possible_task)
 
@@ -22,6 +32,10 @@ export const CurrentTaskForm = ({ currentTask}: {currentTask: Task}) => {
     const diff = now.getTime() - task_stated_at.getTime();
 
     const [second, setSecond] = useState(Math.floor(diff / 1000));
+    const minutes = Math.floor(second / 60)
+    const hours = Math.floor(minutes / 60)
+    const formatedTime = `${hours} hours ${minutes % 60} minutes ${second % 60} seconds`
+
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -31,19 +45,18 @@ export const CurrentTaskForm = ({ currentTask}: {currentTask: Task}) => {
     }, [])
 
     return (
-        <Card>
+        <Card className="w-[350px] my-5">
             <CardHeader>
-            <CardTitle>{currentPossibleTask?.possible_task_name}</CardTitle>
+            <CardTitle>Action en cours : {currentPossibleTask?.possible_task_name}</CardTitle>
             <CardDescription>{currentPossibleTask?.description}</CardDescription>
             </CardHeader>
             <CardContent>
-
-            <div className="flex items-center justify-between">
-                <p>{second} seconds</p>
-                <Button>Finish</Button>
-            </div>
+            {formatedTime}
 
             </CardContent>
+            <CardFooter>
+            <Button onClick={() => updateMutation.mutate(currentTask.id)}>Finish</Button>
+            </CardFooter>
         </Card>
     )
 }

@@ -5,7 +5,6 @@ import { useQuery, useQueryClient } from "@tanstack/react-query"
 import { RowPossibleTask } from "./row_p_task"
 
 export const DisplayPossibleTasks = () => {
-  const queryClient = useQueryClient()
   const query = useQuery({ queryKey: ["possibleTasks"], queryFn: familyService.getFamilyPossibleTasks })
 
   if (!query.data) {
