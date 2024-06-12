@@ -36,7 +36,6 @@ export const RowPossibleTask = ({ p_task }: { p_task: PossibleTask }) => {
   const handleSubmitUpdate = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const formData = new FormData(e.currentTarget)
-    console.log(formData)
     const possible_task_name = formData.get("possible_task_name") as string
     const description = formData.get("description") as string
 

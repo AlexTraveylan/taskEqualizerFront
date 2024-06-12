@@ -48,7 +48,6 @@ class TaskService {
 
     const data = await response.json()
 
-    console.log(data)
     try {
       const parsedData = taskSchema.parse(data)
       return parsedData

@@ -14,6 +14,8 @@ export default function SettingsPage() {
   const query3 = useQuery({ queryKey: ["currentTask"], queryFn: taskService.getCurrentTask})
   const [filterKey, setFilterKey] = useState<string>("")
 
+  console.log(query3.data)
+
   if (!query.data || !query2.data) {
     return <></>
   }
