@@ -43,7 +43,7 @@ class TaskService {
 
     if (!response.ok) {
       console.error("No current task found")
-      return
+      return undefined
     }
 
     const data = await response.json()
@@ -53,6 +53,7 @@ class TaskService {
       return parsedData
     } catch (error) {
       console.log("Failed to parse task")
+      return undefined
     }
   }
 

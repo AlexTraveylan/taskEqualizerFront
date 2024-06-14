@@ -11,10 +11,8 @@ import { useState } from "react"
 export default function SettingsPage() {
   const query = useQuery({ queryKey: ["family"], queryFn: familyService.getFamily })
   const query2 = useQuery({ queryKey: ["possibleTasks"], queryFn: familyService.getFamilyPossibleTasks })
-  const query3 = useQuery({ queryKey: ["currentTask"], queryFn: taskService.getCurrentTask})
+  const query3 = useQuery({ queryKey: ["currentTask"], queryFn: taskService.getCurrentTask })
   const [filterKey, setFilterKey] = useState<string>("")
-
-  console.log(query3.data)
 
   if (!query.data || !query2.data) {
     return <></>
@@ -23,11 +21,11 @@ export default function SettingsPage() {
   if (query3.data) {
     return (
       <>
-      <CurrentTaskForm currentTask={query3.data} />
+        <CurrentTaskForm currentTask={query3.data} />
       </>
     )
   }
-  
+
   return (
     <>
       <div className="flex items-center justify-between">
