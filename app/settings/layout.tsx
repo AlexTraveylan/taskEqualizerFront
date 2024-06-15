@@ -31,7 +31,7 @@ export default function SettingsLayout({
 
   return (
     <Card className="w-full m-5">
-      <CardHeader className="flex-row items-center">
+      <CardHeader className="flex-row items-center flex-wrap">
         {query2.data && (
           <Combobox
             items={query2.data.map((member) => {

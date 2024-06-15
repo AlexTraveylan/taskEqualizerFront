@@ -42,15 +42,20 @@ export const CurrentTaskForm = ({ currentTask }: { currentTask: Task }) => {
   }, [])
 
   return (
-    <Card className="w-[350px] my-5">
-      <CardHeader>
-        <CardTitle>Action en cours : {currentPossibleTask?.possible_task_name}</CardTitle>
-        <CardDescription>{currentPossibleTask?.description}</CardDescription>
-      </CardHeader>
-      <CardContent>{formatedTime}</CardContent>
-      <CardFooter>
-        <Button onClick={() => updateMutation.mutate(currentTask.id)}>Finish</Button>
-      </CardFooter>
-    </Card>
+    <>
+      <div className="flex items-center gap-5 flex-wrap">
+        <h2 className="text-3xl p-3">Tache en cours</h2>
+        <Card className="w-[280px]">
+          <CardHeader>
+            <CardTitle>{currentPossibleTask?.possible_task_name}</CardTitle>
+            <CardDescription>{currentPossibleTask?.description}</CardDescription>
+          </CardHeader>
+          <CardContent>{formatedTime}</CardContent>
+          <CardFooter>
+            <Button onClick={() => updateMutation.mutate(currentTask.id)}>Finish</Button>
+          </CardFooter>
+        </Card>
+      </div>
+    </>
   )
 }

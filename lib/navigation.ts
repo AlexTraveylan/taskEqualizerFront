@@ -31,9 +31,9 @@ export const navigation: NavigationItem[] = [
   },
   {
     label: new Map([
-      ["en", "settings"],
-      ["fr", "paramètres"],
-      ["de", "einstellungen"],
+      ["en", "taskEqualizer"],
+      ["fr", "taskEqualizer"],
+      ["de", "taskEqualizer"],
     ]),
     href: "/settings",
     authRequired: true,

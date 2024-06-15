@@ -28,10 +28,8 @@ export default function SettingsPage() {
 
   return (
     <>
-      <div className="flex items-center justify-between">
-        <h2 className="text-3xl p-3">
-          Dashboad de <span className="font-semibold">{query.data.family_name}</span>
-        </h2>
+      <div className="flex items-center gap-5 flex-wrap">
+        <h2 className="text-3xl p-3">Commencer une tache</h2>
         <Input
           placeholder="Search ..."
           onChange={(e) => {
@@ -39,10 +37,10 @@ export default function SettingsPage() {
             setFilterKey(e.currentTarget.value)
           }}
           value={filterKey}
-          className="max-w-sm"
+          className="w-[280px]"
         />
       </div>
-      <div className="flex flex-wrap gap-3">
+      <div className="flex flex-wrap gap-3 py-5">
         {query2.data
           .filter((possibleTask) => possibleTask.possible_task_name.toLowerCase().includes(filterKey.toLowerCase()))
           .map((possibleTask, index) => (

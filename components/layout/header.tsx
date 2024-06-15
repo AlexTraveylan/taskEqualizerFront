@@ -35,7 +35,7 @@ export function NavBar() {
   }, [])
 
   return (
-    <div className="flex gap-2 py-2 items-center">
+    <div className="flex flex-wrap gap-2 py-2 items-center justify-center md:justify-normal">
       <NavigationMenu>
         <NavigationMenuList>
           {navigation

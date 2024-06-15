@@ -14,17 +14,16 @@ export const PossibleTaskCardForm = ({ possibleTask }: { possibleTask: PossibleT
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["currentTask"] })
     },
-    
   })
 
   return (
-    <Card>
+    <Card className="min-w-[280px]">
       <CardHeader>
         <CardTitle>{possibleTask.possible_task_name}</CardTitle>
         <CardDescription>{possibleTask.description}</CardDescription>
       </CardHeader>
       <CardContent>
-          <Button onClick={() => mutation.mutate({ related_possible_task_id: possibleTask.id })}>Lancer la tache</Button>
+        <Button onClick={() => mutation.mutate({ related_possible_task_id: possibleTask.id })}>Lancer la tache</Button>
       </CardContent>
     </Card>
   )
