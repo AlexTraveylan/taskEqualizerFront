@@ -43,7 +43,7 @@ export const CurrentTaskForm = ({ currentTask }: { currentTask: Task }) => {
 
   return (
     <>
-      <div className="flex items-center gap-5 flex-wrap">
+      <div className="flex flex-col py-5 items-center gap-5 flex-wrap">
         <h2 className="text-3xl p-3">Tache en cours</h2>
         <Card className="w-[280px]">
           <CardHeader>
