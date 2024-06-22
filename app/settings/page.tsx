@@ -3,6 +3,8 @@
 import { CurrentTaskForm } from "@/components/settings/current-task"
 import { PossibleTaskCardForm } from "@/components/settings/possible-task-card-form"
 import { Input } from "@/components/ui/input"
+import { useTranslation } from "@/lib/client-custom"
+import { useLngState } from "@/lib/lng-store"
 import { familyService } from "@/lib/services/family"
 import { taskService } from "@/lib/services/task"
 import { useQuery } from "@tanstack/react-query"
@@ -13,6 +15,8 @@ export default function SettingsPage() {
   const query2 = useQuery({ queryKey: ["possibleTasks"], queryFn: familyService.getFamilyPossibleTasks })
   const query3 = useQuery({ queryKey: ["currentTask"], queryFn: taskService.getCurrentTask })
   const [filterKey, setFilterKey] = useState<string>("")
+  const { lng } = useLngState()
+  const t = useTranslation(lng, "settings-page")
 
   if (!query.data || !query2.data) {
     return <></>
@@ -29,9 +33,9 @@ export default function SettingsPage() {
   return (
     <>
       <div className="flex items-center gap-5 flex-wrap">
-        <h2 className="text-3xl p-3">Commencer une tache</h2>
+        <h2 className="text-3xl p-3">{t("title_begin_task")}</h2>
         <Input
-          placeholder="Search ..."
+          placeholder={t("search_label")}
           onChange={(e) => {
             e.preventDefault()
             setFilterKey(e.currentTarget.value)

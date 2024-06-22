@@ -4,5 +4,7 @@
   "launch_label": "Aufgabe starten",
   "launch_aria": "Link zum Starten einer Aufgabe",
   "resume_label": "Statistiken",
-  "resume_aria": "Link zu den Statistiken"
+  "resume_aria": "Link zu den Statistiken",
+  "title_begin_task": "Aufgabe beginnen",
+  "search_label": "Suchen ..."
 }

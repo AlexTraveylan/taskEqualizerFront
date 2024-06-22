@@ -4,5 +4,7 @@
   "launch_label": "Lancer une tâche",
   "launch_aria": "Lien vers le lancement d'une tâche",
   "resume_label": "Statistiques",
-  "resume_aria": "Lien vers les statistiques"
+  "resume_aria": "Lien vers les statistiques",
+  "title_begin_task": "Commencer une tâche",
+  "search_label": "Rechercher ..."
 }

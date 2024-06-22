@@ -11,6 +11,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
+import { Button } from "@/components/ui/button"
 import {
   Dialog,
   DialogClose,
@@ -21,17 +22,20 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
 import { TableCell, TableRow } from "@/components/ui/table"
+import { useTranslation } from "@/lib/client-custom"
+import { useLngState } from "@/lib/lng-store"
 import { PossibleTask } from "@/lib/schema/possible-task"
 import { possibleTaskService } from "@/lib/services/possible-task"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { SquareArrowOutUpRight, Trash } from "lucide-react"
-import { Button } from "../ui/button"
-import { Input } from "../ui/input"
-import { Label } from "../ui/label"
 
 export const RowPossibleTask = ({ p_task }: { p_task: PossibleTask }) => {
   const queryClient = useQueryClient()
+  const { lng } = useLngState()
+  const t = useTranslation(lng, "create-p-task")
 
   const handleSubmitUpdate = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -73,26 +77,26 @@ export const RowPossibleTask = ({ p_task }: { p_task: PossibleTask }) => {
           <DialogContent className="sm:max-w-[425px]">
             <form onSubmit={handleSubmitUpdate}>
               <DialogHeader>
-                <DialogTitle>Edit possible task</DialogTitle>
-                <DialogDescription>Make changes</DialogDescription>
+                <DialogTitle>{t("dialog_edit")}</DialogTitle>
+                <DialogDescription>{t("dialog_description")}</DialogDescription>
               </DialogHeader>
               <div className="grid gap-4 py-4">
                 <div className="grid grid-cols-4 items-center gap-4">
                   <Label htmlFor="possible_task_name" className="text-right">
-                    Name
+                    {t("dialog_name_label")}
                   </Label>
                   <Input id="possible_task_name" defaultValue={p_task.possible_task_name} className="col-span-3" name="possible_task_name" />
                 </div>
                 <div className="grid grid-cols-4 items-center gap-4">
                   <Label htmlFor="description" className="text-right">
-                    Description
+                    {t("dialog_description_label")}
                   </Label>
                   <Input id="description" defaultValue={p_task.description} className="col-span-3" name="description" />
                 </div>
               </div>
               <DialogFooter>
                 <DialogClose asChild>
-                  <Button type="submit">Save changes</Button>
+                  <Button type="submit">{t("dialog_button_label")}</Button>
                 </DialogClose>
               </DialogFooter>
             </form>
@@ -106,15 +110,13 @@ export const RowPossibleTask = ({ p_task }: { p_task: PossibleTask }) => {
           </AlertDialogTrigger>
           <AlertDialogContent>
             <AlertDialogHeader>
-              <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-              <AlertDialogDescription>
-                This action cannot be undone. This will permanently delete your account and remove your data from our servers.
-              </AlertDialogDescription>
+              <AlertDialogTitle>{t("alert_delete_title")}</AlertDialogTitle>
+              <AlertDialogDescription>{t("alert_delete_description")}</AlertDialogDescription>
             </AlertDialogHeader>
             <AlertDialogFooter>
-              <AlertDialogCancel>Cancel</AlertDialogCancel>
+              <AlertDialogCancel>{t("alert_delete_cancel")}</AlertDialogCancel>
               <AlertDialogAction onClick={() => deleteMutation.mutate(p_task.id)} className="cursor-pointer">
-                Continue
+                {t("alert_delete_confirm")}
               </AlertDialogAction>
             </AlertDialogFooter>
           </AlertDialogContent>
