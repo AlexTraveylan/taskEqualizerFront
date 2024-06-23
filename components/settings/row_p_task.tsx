@@ -25,8 +25,6 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { TableCell, TableRow } from "@/components/ui/table"
-import { useTranslation } from "@/lib/client-custom"
-import { useLngState } from "@/lib/lng-store"
 import { PossibleTask } from "@/lib/schema/possible-task"
 import { possibleTaskService } from "@/lib/services/possible-task"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
@@ -34,8 +32,6 @@ import { SquareArrowOutUpRight, Trash } from "lucide-react"
 
 export const RowPossibleTask = ({ p_task }: { p_task: PossibleTask }) => {
   const queryClient = useQueryClient()
-  const { lng } = useLngState()
-  const t = useTranslation(lng, "create-p-task")
 
   const handleSubmitUpdate = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()

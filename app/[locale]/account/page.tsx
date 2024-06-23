@@ -1,10 +1,9 @@
 "use client"
 
-import { useLngState } from "@/lib/lng-store"
+import { useCurrentLocale } from "@/locales/client"
 
 export default function AccountPage() {
-  const { lng } = useLngState()
-
+  const lng = useCurrentLocale()
   return (
     <>
       <div>

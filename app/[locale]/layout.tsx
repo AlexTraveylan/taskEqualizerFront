@@ -2,8 +2,8 @@
 
 import { Footer } from "@/components/layout/footer"
 import { NavBar } from "@/components/layout/header"
-import { useLngState } from "@/lib/lng-store"
 import { cn } from "@/lib/utils"
+import { useCurrentLocale } from "@/locales/client"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { Inter } from "next/font/google"
 import "./globals.css"
@@ -17,7 +17,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const { lng } = useLngState()
+  const lng = useCurrentLocale()
   return (
     <html lang={lng}>
       <head>

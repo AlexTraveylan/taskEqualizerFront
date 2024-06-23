@@ -1,9 +1,0 @@
-{
-    "title": "Se connecter",
-    "description": "Connecte toi pour accéder à ton espace famille avec ton nom d'utilisateur et ton mot de passe.",
-    "usernameField": "Nom d'utilisateur",
-    "passwordField": "Mot de passe",
-    "buttonLabel": "Se connecter",
-    "footerCard": "Pas encore de compte ?",
-    "footerLink": "Créer un compte"
-}

@@ -13,12 +13,10 @@ import {
 } from "@/components/ui/navigation-menu"
 import { familyUrl } from "@/lib/api-setting"
 import { useIsAuth } from "@/lib/auth-store"
-import { useLngState } from "@/lib/lng-store"
 import { navigation } from "@/lib/navigation"
 import { useEffect } from "react"
 
 export function NavBar() {
-  const { lng } = useLngState()
   const { isAuth, authState } = useIsAuth()
 
   const fetchFamily = async () => {
@@ -46,8 +44,8 @@ export function NavBar() {
               return true
             })
             .map((item, index) => {
-              const ariaLabel = item.ariaLabel.get(lng)
-              const label = item.label.get(lng)
+              const ariaLabel = item.ariaLabel.get("fr") // TODO: add i18n
+              const label = item.label.get("fr") // TODO: add i18n
 
               if (!ariaLabel || !label) {
                 return null

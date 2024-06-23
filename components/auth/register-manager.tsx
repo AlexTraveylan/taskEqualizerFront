@@ -1,7 +1,5 @@
 "use client"
 
-import { useTranslation } from "@/lib/client-custom"
-import { useLngState } from "@/lib/lng-store"
 import { useState } from "react"
 import { Button } from "../ui/button"
 import { RegisterForm } from "./register-card"
@@ -11,8 +9,6 @@ type RegisterState = "pending" | "new" | "invitation"
 
 export function RegisterManager({ setIsLoginCardVisible }: { setIsLoginCardVisible: (value: boolean) => void }) {
   const [state, setState] = useState<RegisterState>("pending")
-  const { lng } = useLngState()
-  const t = useTranslation(lng, "auth-page")
 
   if (state === "pending") {
     return (

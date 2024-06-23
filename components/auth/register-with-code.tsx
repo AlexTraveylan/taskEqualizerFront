@@ -6,13 +6,9 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { registerUrl } from "@/lib/api-setting"
 import { useIsAuth } from "@/lib/auth-store"
-import { useTranslation } from "@/lib/client-custom"
-import { useLngState } from "@/lib/lng-store"
 import { useRouter } from "next/navigation"
 
 export function RegisterWithCodeForm({ setIsLoginCardVisible }: { setIsLoginCardVisible: (value: boolean) => void }) {
-  const { lng } = useLngState()
-  const t = useTranslation(lng, "register-invitation")
   const { authState } = useIsAuth()
   const router = useRouter()
 

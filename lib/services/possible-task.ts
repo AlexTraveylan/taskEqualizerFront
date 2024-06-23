@@ -1,5 +1,5 @@
 import { possibleTaskUrl } from "@/lib/api-setting"
-import { PossibleTask, PossibleTaskIn, possibleTaskSchema } from "@/lib/schema/possible-task"
+import { PossibleTask, PossibleTaskIn, PossibleTaskInWithId, possibleTaskSchema } from "@/lib/schema/possible-task"
 
 class PossibleTaskService {
   /**
@@ -35,7 +35,7 @@ class PossibleTaskService {
    * @param possibleTask - The updated possible task object.
    * @returns A Promise that resolves to the updated PossibleTask object, or undefined if the update fails.
    */
-  async updatePossibleTask(possibleTask: PossibleTaskIn): Promise<PossibleTask | undefined> {
+  async updatePossibleTask(possibleTask: PossibleTaskInWithId): Promise<PossibleTask | undefined> {
     const response = await fetch(`${possibleTaskUrl}${possibleTask.id}`, {
       method: "PUT",
       headers: {
