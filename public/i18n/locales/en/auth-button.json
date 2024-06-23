@@ -1,6 +1,0 @@
-{
-    "logoutButtonLabel": "Logout",
-    "logoutButtonAriaLabel": "Trigger user logout",
-    "loginButtonAriaLabel": "Trigger user login",
-    "loginButtonLabel": "Login"
-}

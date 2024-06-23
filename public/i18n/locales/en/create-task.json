@@ -1,8 +1,0 @@
-{
-    "title": "Creating a new possible task",
-    "description": "Create possible tasks to be able to accomplish them, they will be shared with your household",
-    "task_name_field": "Task Name",
-    "placeholder_name": "Kitchen",
-    "description_field": "Description",
-    "button_label": "Create possible task"
-}
