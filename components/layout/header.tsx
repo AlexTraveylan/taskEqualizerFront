@@ -14,10 +14,12 @@ import {
 import { familyUrl } from "@/lib/api-setting"
 import { useIsAuth } from "@/lib/auth-store"
 import { navigation } from "@/lib/navigation"
+import { useCurrentLocale } from "@/locales/client"
 import { useEffect } from "react"
 
 export function NavBar() {
   const { isAuth, authState } = useIsAuth()
+  const lng = useCurrentLocale()
 
   const fetchFamily = async () => {
     const response = await fetch(familyUrl, {
@@ -44,8 +46,8 @@ export function NavBar() {
               return true
             })
             .map((item, index) => {
-              const ariaLabel = item.ariaLabel.get("fr") // TODO: add i18n
-              const label = item.label.get("fr") // TODO: add i18n
+              const ariaLabel = item.ariaLabel.get(lng)
+              const label = item.label.get(lng)
 
               if (!ariaLabel || !label) {
                 return null

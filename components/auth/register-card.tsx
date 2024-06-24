@@ -6,11 +6,13 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { registerUrl } from "@/lib/api-setting"
 import { useIsAuth } from "@/lib/auth-store"
+import { useScopedI18n } from "@/locales/client"
 import { useRouter } from "next/navigation"
 
 export function RegisterForm({ setIsLoginCardVisible }: { setIsLoginCardVisible: (value: boolean) => void }) {
   const { authState } = useIsAuth()
   const router = useRouter()
+  const scopedT = useScopedI18n("register-card")
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -50,33 +52,33 @@ export function RegisterForm({ setIsLoginCardVisible }: { setIsLoginCardVisible:
   return (
     <Card className="mx-auto max-w-sm">
       <CardHeader>
-        <CardTitle className="text-xl">{t("title")}</CardTitle>
-        <CardDescription>{t("description")}</CardDescription>
+        <CardTitle className="text-xl">{scopedT("title")}</CardTitle>
+        <CardDescription>{scopedT("description")}</CardDescription>
       </CardHeader>
       <CardContent>
         <form onSubmit={(e) => handleSubmit(e)}>
           <div className="grid gap-4">
             <div className="grid gap-2">
-              <Label htmlFor="username">{t("usernameField")}</Label>
+              <Label htmlFor="username">{scopedT("usernameField")}</Label>
               <Input id="username" name="username" type="text" placeholder="Alex006" required />
             </div>
             <div className="grid gap-2">
-              <Label htmlFor="familyName">{t("familyNameField")}</Label>
+              <Label htmlFor="familyName">{scopedT("familyNameField")}</Label>
               <Input id="familyName" name="familyName" type="text" required />
             </div>
             <div className="grid gap-2">
-              <Label htmlFor="password">{t("passwordField")}</Label>
+              <Label htmlFor="password">{scopedT("passwordField")}</Label>
               <Input id="password" name="password" type="password" />
             </div>
             <Button type="submit" className="w-full">
-              {t("buttonLabel")}
+              {scopedT("buttonLabel")}
             </Button>
           </div>
         </form>
         <div className="mt-4 text-center text-sm">
-          {t("footerCard")}
+          {scopedT("footerCard")}
           <Button variant={"ghost"} className="underline" onClick={() => setIsLoginCardVisible(true)}>
-            {t("footerLink")}
+            {scopedT("footerLink")}
           </Button>
         </div>
       </CardContent>

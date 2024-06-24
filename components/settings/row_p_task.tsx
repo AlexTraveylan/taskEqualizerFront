@@ -27,11 +27,13 @@ import { Label } from "@/components/ui/label"
 import { TableCell, TableRow } from "@/components/ui/table"
 import { PossibleTask } from "@/lib/schema/possible-task"
 import { possibleTaskService } from "@/lib/services/possible-task"
+import { useScopedI18n } from "@/locales/client"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { SquareArrowOutUpRight, Trash } from "lucide-react"
 
 export const RowPossibleTask = ({ p_task }: { p_task: PossibleTask }) => {
   const queryClient = useQueryClient()
+  const scopedT = useScopedI18n("create-p-task")
 
   const handleSubmitUpdate = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -73,26 +75,26 @@ export const RowPossibleTask = ({ p_task }: { p_task: PossibleTask }) => {
           <DialogContent className="sm:max-w-[425px]">
             <form onSubmit={handleSubmitUpdate}>
               <DialogHeader>
-                <DialogTitle>{t("dialog_edit")}</DialogTitle>
-                <DialogDescription>{t("dialog_description")}</DialogDescription>
+                <DialogTitle>{scopedT("dialog_edit")}</DialogTitle>
+                <DialogDescription>{scopedT("dialog_description")}</DialogDescription>
               </DialogHeader>
               <div className="grid gap-4 py-4">
                 <div className="grid grid-cols-4 items-center gap-4">
                   <Label htmlFor="possible_task_name" className="text-right">
-                    {t("dialog_name_label")}
+                    {scopedT("dialog_name_label")}
                   </Label>
                   <Input id="possible_task_name" defaultValue={p_task.possible_task_name} className="col-span-3" name="possible_task_name" />
                 </div>
                 <div className="grid grid-cols-4 items-center gap-4">
                   <Label htmlFor="description" className="text-right">
-                    {t("dialog_description_label")}
+                    {scopedT("dialog_description_label")}
                   </Label>
                   <Input id="description" defaultValue={p_task.description} className="col-span-3" name="description" />
                 </div>
               </div>
               <DialogFooter>
                 <DialogClose asChild>
-                  <Button type="submit">{t("dialog_button_label")}</Button>
+                  <Button type="submit">{scopedT("dialog_button_label")}</Button>
                 </DialogClose>
               </DialogFooter>
             </form>
@@ -106,13 +108,13 @@ export const RowPossibleTask = ({ p_task }: { p_task: PossibleTask }) => {
           </AlertDialogTrigger>
           <AlertDialogContent>
             <AlertDialogHeader>
-              <AlertDialogTitle>{t("alert_delete_title")}</AlertDialogTitle>
-              <AlertDialogDescription>{t("alert_delete_description")}</AlertDialogDescription>
+              <AlertDialogTitle>{scopedT("alert_delete_title")}</AlertDialogTitle>
+              <AlertDialogDescription>{scopedT("alert_delete_description")}</AlertDialogDescription>
             </AlertDialogHeader>
             <AlertDialogFooter>
-              <AlertDialogCancel>{t("alert_delete_cancel")}</AlertDialogCancel>
+              <AlertDialogCancel>{scopedT("alert_delete_cancel")}</AlertDialogCancel>
               <AlertDialogAction onClick={() => deleteMutation.mutate(p_task.id)} className="cursor-pointer">
-                {t("alert_delete_confirm")}
+                {scopedT("alert_delete_confirm")}
               </AlertDialogAction>
             </AlertDialogFooter>
           </AlertDialogContent>
