@@ -1,5 +1,0 @@
-{
-    "description": "Il s'agit d'un composant non-page qui nécessite son propre espace de noms",
-    "helpLocize": "En utilisant <1>locize</1>, vous soutenez directement l'avenir de <3>i18next</3>.",
-    "languageSwitcher": "Passer de <1>{{lng}}</1> à : "
-}

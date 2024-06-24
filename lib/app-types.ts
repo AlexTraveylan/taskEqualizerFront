@@ -17,3 +17,5 @@ export type NavigationSettingsItem = {
   href: string
   i18nAriaKey: string
 }
+
+export type LanguagePossibles = "en" | "fr" | "de"

@@ -13,13 +13,13 @@ import {
 } from "@/components/ui/navigation-menu"
 import { familyUrl } from "@/lib/api-setting"
 import { useIsAuth } from "@/lib/auth-store"
-import { useLngState } from "@/lib/lng-store"
 import { navigation } from "@/lib/navigation"
+import { useCurrentLocale } from "@/locales/client"
 import { useEffect } from "react"
 
 export function NavBar() {
-  const { lng } = useLngState()
   const { isAuth, authState } = useIsAuth()
+  const lng = useCurrentLocale()
 
   const fetchFamily = async () => {
     const response = await fetch(familyUrl, {

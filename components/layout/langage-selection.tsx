@@ -1,14 +1,13 @@
 "use client"
 
-import { ImageType } from "@/lib/app-types"
+import { ImageType, LanguagePossibles } from "@/lib/app-types"
 
 import { Menubar, MenubarContent, MenubarItem, MenubarMenu, MenubarTrigger } from "@/components/ui/menubar"
 
+import { languages, useChangeLocale, useCurrentLocale } from "@/locales/client"
 import Image from "next/image"
 
-import { languages, useLngState } from "@/lib/lng-store"
-
-export const flagsImg: Map<string, ImageType> = new Map([
+export const flagsImg: Map<LanguagePossibles, ImageType> = new Map([
   [
     "de",
     {
@@ -39,7 +38,8 @@ export const flagsImg: Map<string, ImageType> = new Map([
 ])
 
 export const LangageSelection = () => {
-  const { lng, changeLng } = useLngState()
+  const lng = useCurrentLocale()
+  const changeLocale = useChangeLocale()
   const currentFlag = flagsImg.get(lng)
 
   if (!currentFlag) {
@@ -67,7 +67,7 @@ export const LangageSelection = () => {
 
               return (
                 <MenubarItem key={`lng_${index}_${l}`}>
-                  <button onClick={() => changeLng(l)} className="flex gap-3">
+                  <button onClick={() => changeLocale(l)} className="flex gap-3">
                     <Image src={flag.src} alt={flag.alt} height={15} width={30} />
                     <span>{l.toLocaleUpperCase()}</span>
                   </button>

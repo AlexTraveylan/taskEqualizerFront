@@ -4,15 +4,13 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { useTranslation } from "@/lib/client-custom"
-import { useLngState } from "@/lib/lng-store"
 import { possibleTaskService } from "@/lib/services/possible-task"
+import { useScopedI18n } from "@/locales/client"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 
 export const PossibleTaskForm = () => {
   const queryClient = useQueryClient()
-  const { lng } = useLngState()
-  const t = useTranslation(lng, "create-task")
+  const scopedT = useScopedI18n("create-task")
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -29,29 +27,29 @@ export const PossibleTaskForm = () => {
   const mutation = useMutation({
     mutationFn: possibleTaskService.createPossibleTask,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["familyPossibleTasks"] })
+      queryClient.invalidateQueries({ queryKey: ["possibleTasks"] })
     },
   })
 
   return (
     <Card className="mx-auto max-w-sm">
       <CardHeader>
-        <CardTitle className="text-2xl">{t("title")}</CardTitle>
-        <CardDescription>{t("description")}</CardDescription>
+        <CardTitle className="text-2xl">{scopedT("title")}</CardTitle>
+        <CardDescription>{scopedT("description")}</CardDescription>
       </CardHeader>
       <CardContent>
         <form onSubmit={(e) => handleSubmit(e)}>
           <div className="grid gap-4">
             <div className="grid gap-2">
-              <Label htmlFor="possible_task_name">{t("task_name_field")}</Label>
-              <Input id="possible_task_name" name="possible_task_name" type="text" placeholder={t("placeholder_name")} required />
+              <Label htmlFor="possible_task_name">{scopedT("task_name_field")}</Label>
+              <Input id="possible_task_name" name="possible_task_name" type="text" placeholder={scopedT("placeholder_name")} required />
             </div>
             <div className="grid gap-2">
-              <Label htmlFor="description">{t("description_field")}</Label>
+              <Label htmlFor="description">{scopedT("description_field")}</Label>
               <Input id="description" name="description" type="text" required />
             </div>
             <Button type="submit" className="w-full">
-              {t("button_label")}
+              {scopedT("button_label")}
             </Button>
           </div>
         </form>

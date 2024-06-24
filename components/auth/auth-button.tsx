@@ -3,16 +3,14 @@
 import { Button } from "@/components/ui/button"
 import { logoutUrl } from "@/lib/api-setting"
 import { useIsAuth } from "@/lib/auth-store"
-import { useTranslation } from "@/lib/client-custom"
-import { useLngState } from "@/lib/lng-store"
+import { useScopedI18n } from "@/locales/client"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 
 export const AuthButton = () => {
-  const { lng } = useLngState()
-  const t = useTranslation(lng, "auth-button")
   const { isAuth, authState } = useIsAuth()
   const router = useRouter()
+  const scopedT = useScopedI18n("auth-button")
 
   const handleLogout = async () => {
     const response = await fetch(logoutUrl, { credentials: "include" })
@@ -27,15 +25,15 @@ export const AuthButton = () => {
 
   if (isAuth) {
     return (
-      <Button onClick={handleLogout} aria-label={t("logoutButtonAriaLabel")}>
-        {t("logoutButtonLabel")}
+      <Button onClick={handleLogout} aria-label={scopedT("logoutButtonAriaLabel")}>
+        {scopedT("logoutButtonLabel")}
       </Button>
     )
   }
 
   return (
     <Link href="/auth-page" passHref>
-      <Button aria-label={t("loginButtonAriaLabel")}>{t("loginButtonLabel")}</Button>
+      <Button aria-label={scopedT("loginButtonAriaLabel")}>{scopedT("loginButtonLabel")}</Button>
     </Link>
   )
 }

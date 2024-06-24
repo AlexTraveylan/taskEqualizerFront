@@ -10,11 +10,10 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 import { Separator } from "@/components/ui/separator"
-import { useTranslation } from "@/lib/client-custom"
-import { useLngState } from "@/lib/lng-store"
 import { settings_navigation } from "@/lib/navigation"
 import { familyService } from "@/lib/services/family"
 import { memberService } from "@/lib/services/member"
+import { useScopedI18n } from "@/locales/client"
 import { useQuery } from "@tanstack/react-query"
 import Link from "next/link"
 
@@ -23,11 +22,9 @@ export default function SettingsLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const { lng } = useLngState()
-  const t = useTranslation(lng, "settings-page")
-
   const query2 = useQuery({ queryKey: ["familyMembers"], queryFn: familyService.getFamilyMembers })
   const query4 = useQuery({ queryKey: ["myName"], queryFn: memberService.whoIam })
+  const scopedT = useScopedI18n("settings-page")
 
   return (
     <Card className="w-full m-5">
@@ -52,11 +49,11 @@ export default function SettingsLayout({
                   <Link
                     key={`${index}_${navItem.i18nKey}`}
                     href={`/settings${navItem.href}`}
-                    aria-label={t(navItem.i18nAriaKey)}
+                    aria-label={scopedT(navItem.i18nAriaKey)}
                     legacyBehavior
                     passHref
                   >
-                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>{t(navItem.i18nKey)}</NavigationMenuLink>
+                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>{scopedT(navItem.i18nKey)}</NavigationMenuLink>
                   </Link>
                 )
               })}
