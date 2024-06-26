@@ -63,4 +63,7 @@ export default {
   "settings-page.resume_aria": "Link zu den Statistiken",
   "settings-page.title_begin_task": "Eine Aufgabe starten",
   "settings-page.search_label": "Suchen ...",
+  "invite-code-form.title": "Einladungscode erstellen",
+  "invite-code-form.description": "Erstelle einen Einladungscode, damit andere Personen deiner Familie beitreten können.",
+  "invite-code-form.btn-label": "Einladungscode generieren",
 } as const

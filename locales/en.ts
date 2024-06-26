@@ -62,4 +62,7 @@ export default {
   "settings-page.resume_aria": "Link to statistics",
   "settings-page.title_begin_task": "Start a Task",
   "settings-page.search_label": "Search ...",
+  "invite-code-form.title": "Create an Invitation Code",
+  "invite-code-form.description": "Create an invitation code for others to join your family.",
+  "invite-code-form.btn-label": "Generate an Invitation Code",
 } as const
