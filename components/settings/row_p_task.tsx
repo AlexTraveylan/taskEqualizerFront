@@ -83,13 +83,19 @@ export const RowPossibleTask = ({ p_task }: { p_task: PossibleTask }) => {
                   <Label htmlFor="possible_task_name" className="text-right">
                     {scopedT("dialog_name_label")}
                   </Label>
-                  <Input id="possible_task_name" defaultValue={p_task.possible_task_name} className="col-span-3" name="possible_task_name" />
+                  <Input
+                    key="possible_task_name"
+                    id="possible_task_name"
+                    defaultValue={p_task.possible_task_name}
+                    className="col-span-3"
+                    name="possible_task_name"
+                  />
                 </div>
                 <div className="grid grid-cols-4 items-center gap-4">
                   <Label htmlFor="description" className="text-right">
                     {scopedT("dialog_description_label")}
                   </Label>
-                  <Input id="description" defaultValue={p_task.description} className="col-span-3" name="description" />
+                  <Input key="p_task_description" id="description" defaultValue={p_task.description} className="col-span-3" name="description" />
                 </div>
               </div>
               <DialogFooter>

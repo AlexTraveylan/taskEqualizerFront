@@ -42,11 +42,18 @@ export const PossibleTaskForm = () => {
           <div className="grid gap-4">
             <div className="grid gap-2">
               <Label htmlFor="possible_task_name">{scopedT("task_name_field")}</Label>
-              <Input id="possible_task_name" name="possible_task_name" type="text" placeholder={scopedT("placeholder_name")} required />
+              <Input
+                key="possible_task_name"
+                id="possible_task_name"
+                name="possible_task_name"
+                type="text"
+                placeholder={scopedT("placeholder_name")}
+                required
+              />
             </div>
             <div className="grid gap-2">
               <Label htmlFor="description">{scopedT("description_field")}</Label>
-              <Input id="description" name="description" type="text" required />
+              <Input key="possible_task_description" id="description" name="description" type="text" required />
             </div>
             <Button type="submit" className="w-full">
               {scopedT("button_label")}
