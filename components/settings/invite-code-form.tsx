@@ -2,6 +2,7 @@
 
 import { invitationService } from "@/lib/services/invitation"
 import { useScopedI18n } from "@/locales/client"
+import { Copy } from "lucide-react"
 import { useState } from "react"
 import { Button } from "../ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "../ui/card"
@@ -22,6 +23,10 @@ export const InviteCodeForm = () => {
     }
   }
 
+  const handleCopy = () => {
+    navigator.clipboard.writeText(code)
+  }
+
   return (
     <Card className="w-[280px]">
       <CardHeader>
@@ -29,11 +34,18 @@ export const InviteCodeForm = () => {
         <CardDescription>{scopedT("description")}</CardDescription>
       </CardHeader>
       <CardContent>
-        <Input key="code_input" id="code_input" type="text" placeholder={code} disabled />
+        <div className="relative">
+          <Input key="code_input" id="code_input" type="text" value={code} disabled />
+          <span className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer" onClick={handleCopy}>
+            <Copy size={23} strokeWidth={1.3} />
+          </span>
+        </div>
       </CardContent>
-      <CardFooter>
-        <Button onClick={handleSubmit}>{scopedT("btn-label")}</Button>
-      </CardFooter>
+      {!code && (
+        <CardFooter>
+          <Button onClick={handleSubmit}>{scopedT("btn-label")}</Button>
+        </CardFooter>
+      )}
     </Card>
   )
 }
